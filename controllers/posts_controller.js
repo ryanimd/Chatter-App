@@ -18,6 +18,9 @@ posts.get('/demo/seed', (req, res) => {
         title: "Random thought",
         message: "Which letter is silent in the word 'Scent', the 'S' or the 'C'?"
       }
-    ]
+    ],
+    (err, data) => {
+      res.redirect('/posts')
+    }
   )
 })
