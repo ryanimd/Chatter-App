@@ -28,18 +28,6 @@ posts.get('/', (req, res) => {
   })
 })
 
-// NEW //
-posts.get('/new', (req, res) => {
-  res.render('posts/new.ejs')
-})
-
-// CREATE //
-posts.post('/', (req, res) => {
-  Post.create(req.body, (err, createdPost) => {
-    res.redirect('/posts')
-  })
-})
-
 // SEED ROUTE FOR DEMO //
 posts.get('/demo/seed', (req, res) => {
   console.log('seed route accessed');
@@ -56,7 +44,21 @@ posts.get('/demo/seed', (req, res) => {
   res.redirect('/posts')
 })
 
-// SHOW //
+// NEW //
+posts.get('/new', (req, res) => {
+  res.render('posts/new.ejs')
+})
 
+// CREATE //
+posts.post('/', (req, res) => {
+  Post.create(req.body, (err, createdPost) => {
+    if (err){
+      console.log(err);
+    } else {
+      console.log(req.body);
+    }
+    res.redirect('/')
+  })
+})
 
 module.exports = posts;
