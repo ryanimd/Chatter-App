@@ -18,11 +18,6 @@ const seed = [
   }
 ]
 
-// // NEW //
-// posts.get('/new', (req, res) => {
-//   res.render('posts/new.ejs')
-// })
-
 // INDEX //
 posts.get('/', (req, res) => {
   Post.find({}, (err, allPosts) => {
@@ -30,6 +25,18 @@ posts.get('/', (req, res) => {
       posts: allPosts
     })
 
+  })
+})
+
+// NEW //
+posts.get('/new', (req, res) => {
+  res.render('posts/new.ejs')
+})
+
+// CREATE //
+posts.post('/', (req, res) => {
+  Post.create(req.body, (err, createdPost) => {
+    res.redirect('/posts')
   })
 })
 
@@ -48,5 +55,8 @@ posts.get('/demo/seed', (req, res) => {
   }
   res.redirect('/posts')
 })
+
+// SHOW //
+
 
 module.exports = posts;
