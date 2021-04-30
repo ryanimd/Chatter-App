@@ -16,6 +16,9 @@
       <p><%=post.message%></p>
       <a href="/posts/<%=post._id%>/edit">
         <button type="submit" value="submit" class="btn btn-outline-primary">Edit</button>
+        <form id="delete-btn" action="/posts/<%=post._id%>?_method=DELETE" method="post">
+          <button type="submit" value="submit" class="btn btn-outline-primary">Delete</button>
+        </form>
       </a>
     </div>
   </body>

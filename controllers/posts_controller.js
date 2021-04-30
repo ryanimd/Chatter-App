@@ -88,4 +88,11 @@ posts.put('/:id', (req, res) => {
   )
 })
 
+// DELETE //
+posts.delete('/:id', (req, res) => {
+  Post.findByIdAndRemove(req.params.id, (err, deletePost) => {
+    res.redirect('/posts')
+  })
+})
+
 module.exports = posts;
