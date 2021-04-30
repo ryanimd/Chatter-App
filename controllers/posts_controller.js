@@ -76,4 +76,16 @@ posts.get('/:id/edit', (req, res) => {
   })
 })
 
+// UPDATE //
+posts.put('/:id', (req, res) => {
+  Post.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    {new: true},
+    (err, updatePost) => {
+      res.redirect('/posts')
+    }
+  )
+})
+
 module.exports = posts;
