@@ -3,12 +3,22 @@ body {
   background: whitesmoke;
 }
 
-/* VIEWS/NEW.EJS */
-
-
 /* VIEWS/INDEX.EJS */
 .messages {
   border: 1px solid red;
   padding: 10px;
   margin: 20px;
+  background: white;
 }
+
+#message-link {
+  color: black;
+  text-decoration: none;
+}
+
+/* VIEWS/NEW.EJS */
+.btn {
+  margin: 10px;
+}
+
+/* VIEWS/EDIT.EJS */

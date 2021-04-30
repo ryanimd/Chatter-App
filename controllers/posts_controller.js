@@ -33,11 +33,11 @@ posts.get('/demo/seed', (req, res) => {
   console.log('seed route accessed');
   for (i in seed) {
     Post.create(seed[i], (err, data) => {
-        if (err){
-          console.log(err);
-        } else {
-          console.log(data);
-        }
+        // if (err){
+        //   console.log(err);
+        // } else {
+        //   console.log(data);
+        // }
       }
     )
   }
@@ -52,12 +52,27 @@ posts.get('/new', (req, res) => {
 // CREATE //
 posts.post('/', (req, res) => {
   Post.create(req.body, (err, createdPost) => {
-    if (err){
-      console.log(err);
-    } else {
-      console.log(req.body);
-    }
+    // console.log(req.body);
     res.redirect('/')
+  })
+})
+
+// SHOW //
+posts.get('/:id', (req, res) => {
+  Post.findById(req.params.id, (err, foundPost) => {
+    // console.log(req.params.id);
+    res.render('posts/show.ejs', {
+      post: foundPost
+    })
+  })
+})
+
+// EDIT //
+posts.get('/:id/edit', (req, res) => {
+  Post.findById(req.params.id, (err, foundPost) => {
+    res.render('posts/edit.ejs', {
+      post: foundPost
+    })
   })
 })
 
