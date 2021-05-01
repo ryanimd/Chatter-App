@@ -10,11 +10,11 @@
     <form class="new-form" action="/posts/<%=post._id%>?_method=PUT" method="POST">
       <div class="mb-3">
         <label class="form-label">Title</label>
-        <input name="title" type="text" class="form-control" id="exampleFormControlInput1" placeholder="<%=post.title%>"/>
+        <input name="title" type="text" class="form-control" placeholder="<%=post.title%>"/>
       </div>
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">On second thought...</label>
-        <textarea name="message" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="<%=post.message%>"></textarea>
+        <label class="form-label">On second thought...</label>
+        <textarea name="message" class="form-control" placeholder="<%=post.message%>"></textarea>
         <button type="submit" value="submit" class="btn btn-outline-primary">Post Edit</button>
       </div>
     </form>

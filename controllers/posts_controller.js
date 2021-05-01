@@ -2,6 +2,13 @@ const express = require('express')
 const Post = require('../models/posts.js')
 const posts = express.Router()
 
+const authenticate = (req, res, next) => {
+  if (req.session.currentUser){
+    return next()
+  } else {
+    res.redirect('/sessions/new')
+  }
+}
 
 const seed = [
   {
@@ -22,7 +29,8 @@ const seed = [
 posts.get('/', (req, res) => {
   Post.find({}, (err, allPosts) => {
     res.render('posts/index.ejs', {
-      posts: allPosts
+      posts: allPosts,
+      currentUser: req.session.currentUser
     })
 
   })
@@ -46,7 +54,10 @@ posts.get('/demo/seed', (req, res) => {
 
 // NEW //
 posts.get('/new', (req, res) => {
-  res.render('posts/new.ejs')
+  res.render(
+    'posts/new.ejs',
+    {currentUser: req.session.currentUser}
+  )
 })
 
 // CREATE //
@@ -62,7 +73,8 @@ posts.get('/:id', (req, res) => {
   Post.findById(req.params.id, (err, foundPost) => {
     // console.log(req.params.id);
     res.render('posts/show.ejs', {
-      post: foundPost
+      post: foundPost,
+      currentUser: req.session.currentUser
     })
   })
 })
@@ -71,7 +83,8 @@ posts.get('/:id', (req, res) => {
 posts.get('/:id/edit', (req, res) => {
   Post.findById(req.params.id, (err, foundPost) => {
     res.render('posts/edit.ejs', {
-      post: foundPost
+      post: foundPost,
+      currentUser: req.session.currentUser
     })
   })
 })
@@ -94,6 +107,5 @@ posts.delete('/:id', (req, res) => {
     res.redirect('/posts')
   })
 })
-
 
 module.exports = posts;

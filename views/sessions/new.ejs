@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <% include ('../partials/head.ejs') %>
+    <%- include ('../partials/head.ejs') %>
   </head>
   <body>
-    <h1>Memoir | Sign Up</h1>
+    <h1>Chatter | Log In</h1>
+    <form class="new-form" action="/sessions" method="POST">
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input name="username" type="text" class="form-control"/>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" name="password" class="form-control"></input>
+        <button type="submit" value="submit" class="btn btn-outline-primary">Log in</button>
+      </div>
+    </form>
   </body>
 </html>

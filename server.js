@@ -4,6 +4,7 @@
 const express = require('express');
 const methodOverride  = require('method-override');
 const mongoose = require('mongoose');
+const session = require('express-session')
 const app = express();
 const db = mongoose.connection;
 require('dotenv').config()
@@ -36,11 +37,23 @@ app.use(express.urlencoded({ extended: false}));// extended: false - does not al
 app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
 //use method override
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
+//needed for sessions
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false
+  })
+)
 //___________________
 //CONTROLLERS
 //___________________
 const postController = require('./controllers/posts_controller.js')
 app.use('/posts', postController)
+const userController = require('./controllers/users_controller.js')
+app.use('/users', userController)
+const sessionController = require('./controllers/sessions_controller.js')
+app.use('/sessions', sessionController)
 //___________________
 // ROUTES
 //___________________
