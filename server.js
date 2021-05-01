@@ -54,6 +54,8 @@ const userController = require('./controllers/users_controller.js')
 app.use('/users', userController)
 const sessionController = require('./controllers/sessions_controller.js')
 app.use('/sessions', sessionController)
+const landingController = require('./controllers/landing_controller.js')
+app.use('/landing', landingController)
 //___________________
 // ROUTES
 //___________________

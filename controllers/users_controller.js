@@ -17,6 +17,7 @@ users.post('/', (req, res) => {
   req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
   //req.body now includes new hashed password
   User.create(req.body, (err, createdUser) => {
+    //Thought about making this page redirect to the home page once the user signed up, but kept it the same to make sure the users credentials work when logging in
     res.redirect('/')
   })
 })

@@ -32,7 +32,6 @@ posts.get('/', (req, res) => {
       posts: allPosts,
       currentUser: req.session.currentUser
     })
-
   })
 })
 
@@ -69,13 +68,13 @@ posts.post('/', (req, res) => {
 })
 
 // SHOW //
-posts.get('/:id', (req, res) => {
-  Post.findById(req.params.id, (err, foundPost) => {
-    // console.log(req.params.id);
-    res.render('posts/show.ejs', {
-      post: foundPost,
-      currentUser: req.session.currentUser
-    })
+posts.get('/:id', authenticate, (req, res) => {
+    Post.findById(req.params.id, (err, foundPost) => {
+      // console.log(req.params.id);
+      res.render('posts/show.ejs', {
+        post: foundPost,
+        currentUser: req.session.currentUser
+      })
   })
 })
 

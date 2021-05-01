@@ -3,6 +3,12 @@ body {
   background: whitesmoke;
 }
 
+/* LANDING PAGE */
+.landing-link {
+  color: black;
+  text-decoration: none;
+}
+
 /* VIEWS/INDEX.EJS */
 .messages {
   border: 1px solid red;
