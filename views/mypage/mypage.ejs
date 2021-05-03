@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include ('../partials/head.ejs') %>
+  </head>
+  <body>
+    <header>
+      <% if (currentUser) { %>
+        <h1>Chatter | Your Posts</h1>
+      <% } else { %>
+        <h1>Chatter</h1>
+      <% } %>
+    </header>
+    <nav>
+      <%- include ('../partials/nav.ejs') %>
+    </nav>
+  </body>
+</html>

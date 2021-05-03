@@ -6,9 +6,9 @@ const User = require('../models/users.js')
 // NEW //
 sessions.get('/new', (req, res) => {
   res.render('sessions/new.ejs',
-{
-  currentUser: req.session.currentUser
-})
+    {
+      currentUser: req.session.currentUser
+    })
 })
 
 // CREATE //

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="app.js"></script>
     <%- include ('../partials/head.ejs') %>
   </head>
   <body>
@@ -15,7 +17,7 @@
       <%- include ('../partials/nav.ejs') %>
     </nav>
     <div class="posts-container">
-      <% for (let i = 0; i < posts.length; i++) { %>
+      <% for (let i = posts.length - 1; i >= 0; i--) { %>
         <a id="message-link" href="/posts/<%=posts[i]._id%>">
           <div class="messages">
             <h3><%=posts[i].title%></h3>

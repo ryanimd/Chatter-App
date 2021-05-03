@@ -5,3 +5,4 @@ For this project, I created a very simple social media app that enables the user
 https://github.com/ryanimd/Project-2
 
 ## Heroku link
+https://limitless-anchorage-86404.herokuapp.com/posts
