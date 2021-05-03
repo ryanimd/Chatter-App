@@ -11,9 +11,11 @@
     <nav>
       <%- include ('../partials/nav.ejs') %>
     </nav>
-    <div class="messages">
+    <div class="messages-show">
       <h3><%=post.title%></h3>
       <p><%=post.message%></p>
+      <div class="post-date">
+      </div>
       <a href="/posts/<%=post._id%>/edit">
         <button type="submit" value="submit" class="btn btn-outline-primary">Edit</button>
         <form id="delete-btn" action="/posts/<%=post._id%>?_method=DELETE" method="post">
