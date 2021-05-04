@@ -48,8 +48,8 @@ app.use(
 //___________________
 //CONTROLLERS
 //___________________
-// const landingController = require('./controllers/landing_controller.js')
-// app.use('/landing', landingController)
+const landingController = require('./controllers/landing_controller.js')
+app.use('/landing', landingController)
 const postController = require('./controllers/posts_controller.js')
 app.use('/posts', postController)
 const userController = require('./controllers/users_controller.js')
