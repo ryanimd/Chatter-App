@@ -56,8 +56,8 @@ const userController = require('./controllers/users_controller.js')
 app.use('/users', userController)
 const sessionController = require('./controllers/sessions_controller.js')
 app.use('/sessions', sessionController)
-const myPageController = require('./controllers/mypage_controller.js')
-app.use('/mypage', myPageController)
+// const myPageController = require('./controllers/mypage_controller.js')
+// app.use('/mypage', myPageController)
 //___________________
 // ROUTES
 //___________________

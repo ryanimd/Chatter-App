@@ -1,10 +1,10 @@
 /* GLOBAL */
 body {
-  background: rgb(230, 234, 234);
+  background: #284177;
 }
 
 h1 {
-  color: #37475A;
+  color: #EDE8E4;
 }
 
 li {
@@ -12,7 +12,7 @@ li {
 }
 
 .nav-div {
-  background: #232F3E
+  background: #EDE8E4
 }
 
 .nav-item {
@@ -21,11 +21,11 @@ li {
 }
 
 .nav-link {
-  color: #FEBD69
+  color: #006BBD
 }
 
 .welcome {
-  color: #FEBD69;
+  color: #EDE8E4;
   text-decoration: none;
 }
 
@@ -41,7 +41,8 @@ li {
   margin: 20px;
   background: #F2F7FF;
   width: 500px;
-  border: 3px solid #131A22
+  border: 3px solid #131A22;
+  border-radius: 15px;
 }
 
 #message-link {
@@ -66,7 +67,7 @@ li {
 /* VIEWS/SHOW.EJS */
 .messages-show {
   padding: 10px;
-  margin: 20px;
+  margin: 0 auto;
   background: #F2F7FF;
   width: 500px;
   border: 5px solid black
